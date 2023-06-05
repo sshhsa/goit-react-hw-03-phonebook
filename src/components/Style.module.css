@@ -1,0 +1,100 @@
+@import 'index.css';
+
+:root {
+    --default-border: 2px solid var(--dark-clr-3);
+    --default-margin: 10px;
+}
+
+.phoneBook {
+    margin: var(--default-margin);
+    padding: 2px;
+
+    background-image: linear-gradient(30deg, var(--dark-clr-2), var(--light-clr-2), var(--dark-clr-3));
+}
+
+.containerDefault {
+    padding: 20px;
+
+    background-color: var(--light-clr-1);
+}
+
+.chapter {
+    margin-bottom: var(--default-margin);
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/* Form */
+
+.formSubmit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-bottom: var(--default-margin);
+}
+
+.formLabel {
+    font-size: 20px;
+    font-weight: 600;
+
+    color: var(--dark-clr-2);
+}
+
+.formInput {
+    margin-left: var(--default-margin);
+    padding: 5px 10px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    border: 2px dashed var(--light-clr-2);
+    background-color: inherit;
+}
+
+.formSubmit :first-child .formInput {
+    margin-bottom: var(--default-margin);
+}
+
+.buttonSubmitForm {
+    margin-top: var(--default-margin);
+    padding: 5px 15px;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border: var(--default-border);
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: var(--dark-clr-2);
+    background-color: var(--light-clr-2);
+}
+
+/* Contact list */
+
+.contactsListItem {
+    font-size: 20px;
+    font-weight: 500;
+
+    color: var(--dark-clr-1);
+}
+
+.buttonDeleteContact {
+    margin-left: var(--default-margin);
+    margin-top: var(--default-margin);
+    padding: 5px;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border: var(--default-border);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: var(--dark-clr-2);
+    background-color: var(--light-clr-2);
+}
