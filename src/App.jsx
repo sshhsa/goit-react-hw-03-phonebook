@@ -6,6 +6,8 @@ import Filter from './components/Filter/Filter';
 import Chapter from 'components/Chapter/Chapter';
 
 import shortid from 'shortid';
+import Notiflix from 'notiflix';
+
 import css from './components/Style.module.css';
 
 class App extends Component {
@@ -45,6 +47,22 @@ class App extends Component {
     }));
   };
 
+  componentDidMount() {
+    const contactsStorage = localStorage.getItem('contacts');
+    const parseContactsStorage = JSON.parse(contactsStorage);
+
+    if (parseContactsStorage) {
+      this.setState({ contacts: parseContactsStorage })
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      Notiflix.Notify.success('Field contacts was updated');
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   render() {
     const { contacts, filter } = this.state;
     const filteredContacts = contacts.filter(contact =>
@@ -57,10 +75,7 @@ class App extends Component {
                 <Form formSubmit={this.handleOnSubmitForm} />
                 <Chapter chapter={'Contacts'}></Chapter>
                 <Filter text={filter} onChange={this.handleInputChange} />
-                <ContactsList
-                    contacts={filteredContacts}
-                    onDelete={this.deleteEntries}
-                    />
+                <ContactsList contacts={filteredContacts} onDelete={this.deleteEntries} />
             </div>
       </div>
     );

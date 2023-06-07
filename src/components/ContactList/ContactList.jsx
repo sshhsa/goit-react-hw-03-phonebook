@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import css from '../Style.module.css';
 
-const ContactsList = ({ contacts, onDelete }) => {
+function ContactsList({ contacts, onDelete }) {
   return (
     <ul className={css.contactsList}>
       {contacts.map(contact => (
